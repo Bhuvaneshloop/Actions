@@ -6,4 +6,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo "Hellow Words"
+      - run: echo "Run Build"
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Running deploy"
