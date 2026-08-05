@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/chekout@v3
       - run: pwd
       - run: whoami
       - run: hostname
