@@ -1,0 +1,21 @@
+name: pull
+
+on:
+  pull_request: 
+    types: 
+      - opened
+      - synchronize
+      - reopened
+      - closed
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "print event"
+        run: echo "Event= ${{ github.event.action }}"  
+
+      - name: Print branch
+        run: echo "Branch= ${{ github.head_ref }}"
+
+      - name: print base branch
+        run: echo "Base= ${{ github.base_ref }}"
