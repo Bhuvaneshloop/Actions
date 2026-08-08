@@ -6,6 +6,11 @@ on:
         description: app running environemnt
         required: true
         default: dev
+        type: choice
+        options:
+          - dev
+          - prod
+          - uat
 jobs:
   envvar:
     runs-on: ubuntu-latest
