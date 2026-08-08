@@ -1,11 +1,14 @@
 name: ENV_TRAIL
-on: workflow_dispatch
-env:
-  ENVIORNMENT: Dev
-
+on: 
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: app running environemnt
+        required: true
+        default: dev
 jobs:
   envvar:
     runs-on: ubuntu-latest
     steps:
       - name: Running Environment
-        run: echo "Running in the environemnt $ENVIORNMENT"
+        run: echo "Running in the environemnt ${{ inputs.environment }}"
