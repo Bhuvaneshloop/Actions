@@ -1,0 +1,11 @@
+name: ENV_TRAIL
+on: workflow_dispatch
+env:
+  ENVIORNMENT: Dev
+
+jobs:
+  envvar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running Environment
+        run: echo "Running in the environemnt $ENVIORNMENT"
