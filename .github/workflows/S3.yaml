@@ -16,7 +16,7 @@ jobs:
           aws-region: ap-south-1
       - name: dploying index.htl to the s3
         run: |
-          aws s3 sysnc ./ s3://static-web-bck/ \
+          aws s3 sync ./ s3://static-web-bck/ \
           --exclude "*" \
           --include "index.html"
       - name: pringin or listing iside ./
