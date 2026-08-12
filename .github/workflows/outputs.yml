@@ -15,4 +15,4 @@ jobs:
     needs: Build
     steps:
       - name: Deply step 1
-        run: echo "I am running for the ${{needs.Build.outputs.namo}}
+        run: echo "I am running for the ${{needs.Build.outputs.namo}}"
