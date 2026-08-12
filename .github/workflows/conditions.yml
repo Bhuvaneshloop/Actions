@@ -12,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
-      - name: build
+      - name: building
         run: echo "building the proejct"
   deploy:
     runs-on: ubuntu-latest
     if: github.event_name ==  'pull_request'
     steps:
-      - name: deplyment
+      - name: depolyment
         run: echo "deploying the project"
