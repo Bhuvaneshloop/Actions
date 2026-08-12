@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: Variables
         id: step1
-        run: echo "var=bhuvanesh" >> "$GITHUB.OUTPUTS"
+        run: echo "var=bhuvanesh" >> "$GITHUB_OUTPUTS"
       - name : Varaibles2
-        run: echo $${{ steps.step1.outputs.var }}
+        run: echo ${{ steps.step1.outputs.var }}
