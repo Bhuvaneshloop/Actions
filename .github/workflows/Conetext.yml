@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: githun content
-        run: ${{ github }}
+        run: echo ${{ github.actor }}
