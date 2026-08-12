@@ -1,0 +1,21 @@
+name: Conditions
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - synchronize
+jobs:  
+  build:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - name: build
+        run: echo "building the proejct"
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deplyment
+        run: echo "deploying the project"
