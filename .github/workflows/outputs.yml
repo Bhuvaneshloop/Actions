@@ -1,0 +1,12 @@
+name: Outputs
+on: workflow_dispatch
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Variables
+        id: step1
+        run: echo "var=bhuvanesh"
+      - name : Varaibles2
+        run: echo $${{ steps.step1.outputs.var }}
