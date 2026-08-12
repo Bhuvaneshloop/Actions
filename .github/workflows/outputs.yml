@@ -4,9 +4,15 @@ on: workflow_dispatch
 jobs:
   Build:
     runs-on: ubuntu-latest
+    outputs:
+      namo: ${{ steps.step1.outputs.var }}
     steps:
       - name: Variables
         id: step1
         run: echo "var=bhuvanesh" >> "$GITHUB_OUTPUT"
-      - name : Varaibles2
-        run: echo ${{ steps.step1.outputs.var }}
+  Deply:
+    runs-on: ubuntu-latest
+    needs: Build
+    steps:
+      - name: Deply step 1
+        run: echo "I am running for the ${{needs.Build.outputs.namo}}
