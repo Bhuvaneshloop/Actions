@@ -1,0 +1,42 @@
+name: Depoyement-feature
+on:
+    push:
+      branches:
+        - main
+        - developer
+        - feature/*
+jobs:
+  feature:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref_name , 'feature') && github.event_name == 'push' 
+    steps:
+      - name: Static_test
+        run: echo "Static test"
+
+  Dev:
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'developer' && github.event_name == 'push'
+    steps:
+      - name: Deploy to Dev
+        run: echo "Deploy to Dev"
+
+  Prod:
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'main' && github.event_name == 'push'
+    steps:
+      - name: Deploy to Prod
+        run: echo "Deploy to Prod"
+  Success_notify:
+    runs-on: ubuntu-latest
+    needs: [feature, Dev, Prod]
+    if: always() && !failure()
+    steps:
+      - name: Notify Success
+        run: echo "Deployment Success"
+  failure_notify:
+    runs-on: ubuntu-latest
+    needs: [feature, Dev, Prod]
+    if: failure()
+    steps:
+      - name: Notify Failure
+        run: echo "Deployment Failed"
