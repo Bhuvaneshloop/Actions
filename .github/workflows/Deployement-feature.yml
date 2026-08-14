@@ -11,7 +11,9 @@ jobs:
     if: startsWith(github.ref_name , 'feature') && github.event_name == 'push' 
     steps:
       - name: Static_test
-        run: echo "Static test"
+        run: | 
+          echo "Static test"
+          exit 1
 
   Dev:
     runs-on: ubuntu-latest
