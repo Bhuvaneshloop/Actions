@@ -20,7 +20,10 @@ jobs:
     if: github.ref_name == 'developer' && github.event_name == 'push'
     steps:
       - name: Deploy to Dev
-        run: echo "Deploy to Dev"
+        run: | 
+             echo "Deploy to Dev"
+             exit 1
+             
 
   Prod:
     runs-on: ubuntu-latest
